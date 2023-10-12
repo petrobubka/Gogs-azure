@@ -1,5 +1,3 @@
 version: 1
 
-build: go build -o gogs
- 
 run: ./gogs web
