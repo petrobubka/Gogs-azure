@@ -8,6 +8,7 @@ Existing vulnerability reports are being tracked in [Gogs Vulnerability Reports]
 
 ## Vulnerability lifecycle
 
+
 1. Report a vulnerability:
     - We strongly enourage to use https://huntr.dev/ for submitting and managing status of vulnerability reports.
     - Alternatively, you may send vulnerability reports through emails to [security@gogs.io](mailto:security@gogs.io).
