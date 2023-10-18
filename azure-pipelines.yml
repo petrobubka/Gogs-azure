@@ -6,7 +6,7 @@ trigger:
 - main
 
 pool:  
-  name: default
+  name: vsphere
 
 
 resources:
