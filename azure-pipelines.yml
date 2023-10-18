@@ -1,11 +1,8 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
 
 trigger:
 - main
 
-pool: vsphere
 
 
 resources:
@@ -20,8 +17,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: ubuntu-latest
+    pool: vsphere
     steps:
     - task: Docker@2
       displayName: Build an image
