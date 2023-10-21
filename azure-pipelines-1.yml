@@ -36,3 +36,12 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure for Students(3a0e51bd-e967-4dd7-ab92-0092181878ee)'
+        appType: 'webAppContainer'
+        WebAppName: 'gogs'
+        DockerNamespace: $(dockerRegistryServiceConnection)
+        DockerRepository: $(imageRepository)
+        DockerImageTag: $(tag)
