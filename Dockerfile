@@ -6,12 +6,14 @@ RUN echo -e "https://alpine.global.ssl.fastly.net/alpine/v3.18/community" > /etc
 RUN echo -e "https://alpine.global.ssl.fastly.net/alpine/v3.18/main" >> /etc/apk/repositories
 
 
-RUN apk update && apk add --no-cache go git
+RUN apk update && apk add postgresql-client go git openssh 
 
 WORKDIR /app
 COPY . .
 
 RUN go build -o gogs
+RUN go test -v -cover ./...
+
 
 # Final stage
 FROM alpine:3.15
