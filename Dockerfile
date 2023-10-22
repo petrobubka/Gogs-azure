@@ -23,7 +23,7 @@ RUN apk add postgresql-client go git openssh
 
 WORKDIR /gogs
 
-COPY --from=builder /app/gogs /gogs
+COPY --from=builder /app/ /gogs/
 
 EXPOSE 80
 EXPOSE 22
