@@ -41,7 +41,7 @@ stages:
         ConnectionType: 'AzureRM'
         azureSubscription: 'Azure for Students(3a0e51bd-e967-4dd7-ab92-0092181878ee)'
         appType: 'webAppContainer'
-        WebAppName: 'gogs'
+        WebAppName: 'gogstest2'
         DockerNamespace: $(containerRegistry)
         DockerRepository: $(imageRepository)
         DockerImageTag: $(tag)
