@@ -44,9 +44,10 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: 'Azure for Students(3a0e51bd-e967-4dd7-ab92-0092181878ee)'
+        azureSubscription: 'Azure for Students(1)(3a0e51bd-e967-4dd7-ab92-0092181878ee)'
         appType: 'webAppContainer'
         WebAppName: 'Gogs'
         DockerNamespace: 'gogsregistry.azurecr.io'
         DockerRepository: '$(imageRepository)'
         DockerImageTag: '$(tag)'
+
