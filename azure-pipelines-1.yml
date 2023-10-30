@@ -42,7 +42,6 @@ stages:
         export ARM_CLIENT_SECRET="$AZURE_CLIENT_SECRET"
         export ARM_TENANT_ID="$AZURE_TENANT_ID"
         export ARM_SUBSCRIPTION_ID="$AZURE_SUBSCRIPTION_ID"
-        export ARM_ACCESS_KEY=$AZURE_ACCOUNT_KEY
         cd terraform
         terraform init
         terraform apply -auto-approve
@@ -53,7 +52,7 @@ stages:
           AZURE_CLIENT_SECRET: $(AZURE_CLIENT_SECRET)
           AZURE_TENANT_ID: $(AZURE_TENANT_ID)
           AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
-          AZURE_ACCOUNT_KEY: $(AZURE_ACCOUNT_KEY)
+          #AZURE_ACCOUNT_KEY: $(AZURE_ACCOUNT_KEY)
 
     - task: Bash@3
       inputs:
