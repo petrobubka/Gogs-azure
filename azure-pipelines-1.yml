@@ -30,9 +30,11 @@ stages:
     pool: vsphere
     steps:
     - task: Bash@3
+      displayName: Install Terraform
       inputs:
         filePath: 'install-terraform.sh'
     - task: Bash@3
+      displayName: Install Azure CLI
       inputs:
         filePath: 'install-azure-cli.sh'
 
@@ -46,17 +48,13 @@ stages:
         terraform init
         terraform apply -auto-approve
         cd ..
-
+      displayName: Apply Terraform
       env:
           AZURE_CLIENT_ID: $(AZURE_CLIENT_ID)
           AZURE_CLIENT_SECRET: $(AZURE_CLIENT_SECRET)
           AZURE_TENANT_ID: $(AZURE_TENANT_ID)
           AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
-          #AZURE_ACCOUNT_KEY: $(AZURE_ACCOUNT_KEY)
 
-    - task: Bash@3
-      inputs:
-        filePath: 'apply-terraform.sh'
         
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -68,6 +66,7 @@ stages:
         tags: '$(tag)'
 
     - task: AzureRmWebAppDeployment@4
+      displayName: Deploy to Azure Web App
       inputs:
         ConnectionType: 'AzureRM'
         azureSubscription: 'Azure for Students(1)(3a0e51bd-e967-4dd7-ab92-0092181878ee)'
